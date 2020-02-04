@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gx9-g2-n4p">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login-->
+        <scene sceneID="OHd-LO-vSF">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" title="Login" id="gx9-g2-n4p" customClass="LoginViewController" customModule="Swifty_Proteins" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bua-7A-Fsu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fingerprint" translatesAutoresizingMaskIntoConstraints="NO" id="Nte-Qs-MDF">
+                                <rect key="frame" x="182" y="624" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7PM-us-9Tc"/>
+                                    <constraint firstAttribute="width" constant="50" id="rGd-q6-jbs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use TouchID to enter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-XL-HMV">
+                                <rect key="frame" x="122.5" y="704" width="169" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.89640750709999995" blue="0.81125813869999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="f8R-XL-HMV" firstAttribute="top" secondItem="Nte-Qs-MDF" secondAttribute="bottom" constant="30" id="A4f-d0-fyn"/>
+                            <constraint firstItem="98m-bC-ns1" firstAttribute="bottom" secondItem="Nte-Qs-MDF" secondAttribute="bottom" constant="100" id="hQL-hb-md0"/>
+                            <constraint firstItem="Nte-Qs-MDF" firstAttribute="centerX" secondItem="98m-bC-ns1" secondAttribute="centerX" id="lev-FF-Lvs"/>
+                            <constraint firstItem="f8R-XL-HMV" firstAttribute="centerX" secondItem="98m-bC-ns1" secondAttribute="centerX" id="uIQ-0J-mx0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="98m-bC-ns1"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="97g-jt-8Me" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19" y="37"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fingerprint" width="50" height="50"/>
+    </resources>
+</document>
