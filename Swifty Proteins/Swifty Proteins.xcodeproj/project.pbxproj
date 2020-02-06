@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		779A2BCA23E8B44600F7BBF3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A2BC923E8B44600F7BBF3 /* LoginViewController.swift */; };
 		779A2BCC23E8B45500F7BBF3 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 779A2BCB23E8B45500F7BBF3 /* LoginViewController.storyboard */; };
+		77A81F7523EB61FA00D215F4 /* LoginKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A81F7423EB61F900D215F4 /* LoginKitchen.swift */; };
+		77A81F7823EB646E00D215F4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A81F7723EB646E00D215F4 /* UIViewController.swift */; };
+		77A81F7B23EC189800D215F4 /* ProteinsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A81F7A23EC189800D215F4 /* ProteinsList.storyboard */; };
+		77A81F7D23EC18AB00D215F4 /* ProteinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A81F7C23EC18AB00D215F4 /* ProteinsListViewController.swift */; };
 		77EA6F2423E82BA000212887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA6F2323E82BA000212887 /* AppDelegate.swift */; };
-		77EA6F2623E82BA000212887 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA6F2523E82BA000212887 /* ViewController.swift */; };
 		77EA6F2923E82BA000212887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2723E82BA000212887 /* Main.storyboard */; };
 		77EA6F2B23E82BA100212887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2A23E82BA100212887 /* Assets.xcassets */; };
 		77EA6F2E23E82BA100212887 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2C23E82BA100212887 /* LaunchScreen.storyboard */; };
@@ -19,9 +22,12 @@
 /* Begin PBXFileReference section */
 		779A2BC923E8B44600F7BBF3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		779A2BCB23E8B45500F7BBF3 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		77A81F7423EB61F900D215F4 /* LoginKitchen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKitchen.swift; sourceTree = "<group>"; };
+		77A81F7723EB646E00D215F4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		77A81F7A23EC189800D215F4 /* ProteinsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProteinsList.storyboard; sourceTree = "<group>"; };
+		77A81F7C23EC18AB00D215F4 /* ProteinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinsListViewController.swift; sourceTree = "<group>"; };
 		77EA6F2023E82BA000212887 /* Swifty Proteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Proteins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EA6F2323E82BA000212887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		77EA6F2523E82BA000212887 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		77EA6F2823E82BA000212887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77EA6F2A23E82BA100212887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77EA6F2D23E82BA100212887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,13 +45,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		779A2BC823E8B41400F7BBF3 /* LoginViewController */ = {
+		779A2BC823E8B41400F7BBF3 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				77A81F7423EB61F900D215F4 /* LoginKitchen.swift */,
 				779A2BC923E8B44600F7BBF3 /* LoginViewController.swift */,
 				779A2BCB23E8B45500F7BBF3 /* LoginViewController.storyboard */,
 			);
-			path = LoginViewController;
+			path = Login;
+			sourceTree = "<group>";
+		};
+		77A81F7623EB645000D215F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77A81F7723EB646E00D215F4 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		77A81F7923EC187C00D215F4 /* ProteinsList */ = {
+			isa = PBXGroup;
+			children = (
+				77A81F7C23EC18AB00D215F4 /* ProteinsListViewController.swift */,
+				77A81F7A23EC189800D215F4 /* ProteinsList.storyboard */,
+			);
+			path = ProteinsList;
 			sourceTree = "<group>";
 		};
 		77EA6F1723E82BA000212887 = {
@@ -67,9 +91,10 @@
 		77EA6F2223E82BA000212887 /* Swifty Proteins */ = {
 			isa = PBXGroup;
 			children = (
-				779A2BC823E8B41400F7BBF3 /* LoginViewController */,
+				77A81F7923EC187C00D215F4 /* ProteinsList */,
+				77A81F7623EB645000D215F4 /* Extensions */,
+				779A2BC823E8B41400F7BBF3 /* Login */,
 				77EA6F2323E82BA000212887 /* AppDelegate.swift */,
-				77EA6F2523E82BA000212887 /* ViewController.swift */,
 				77EA6F2723E82BA000212887 /* Main.storyboard */,
 				77EA6F2A23E82BA100212887 /* Assets.xcassets */,
 				77EA6F2C23E82BA100212887 /* LaunchScreen.storyboard */,
@@ -140,6 +165,7 @@
 				779A2BCC23E8B45500F7BBF3 /* LoginViewController.storyboard in Resources */,
 				77EA6F2B23E82BA100212887 /* Assets.xcassets in Resources */,
 				77EA6F2923E82BA000212887 /* Main.storyboard in Resources */,
+				77A81F7B23EC189800D215F4 /* ProteinsList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				779A2BCA23E8B44600F7BBF3 /* LoginViewController.swift in Sources */,
-				77EA6F2623E82BA000212887 /* ViewController.swift in Sources */,
+				77A81F7523EB61FA00D215F4 /* LoginKitchen.swift in Sources */,
+				77A81F7823EB646E00D215F4 /* UIViewController.swift in Sources */,
+				77A81F7D23EC18AB00D215F4 /* ProteinsListViewController.swift in Sources */,
 				77EA6F2423E82BA000212887 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
