@@ -8,40 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--Login View Controller-->
         <scene sceneID="OHd-LO-vSF">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" title="Login" id="gx9-g2-n4p" customClass="LoginViewController" customModule="Swifty_Proteins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="gx9-g2-n4p" customClass="LoginViewController" customModule="Swifty_Proteins" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bua-7A-Fsu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use TouchID or FaceID to enter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-XL-HMV">
-                                <rect key="frame" x="80.5" y="703" width="253" height="21"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-RC-hLl">
-                                <rect key="frame" x="177" y="603" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Ur3-fw-XUO"/>
-                                    <constraint firstAttribute="width" constant="60" id="Zev-tA-ToF"/>
-                                </constraints>
-                                <state key="normal" image="lock"/>
-                                <connections>
-                                    <action selector="touchIDButtonTapped:" destination="gx9-g2-n4p" eventType="touchUpInside" id="FV3-bo-kQe"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Tky-Cv-akp">
-                                <rect key="frame" x="57" y="328" width="300" height="118"/>
+                                <rect key="frame" x="57" y="320" width="300" height="266"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qd9-GG-V4E">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qd9-GG-V4E">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLC-sx-3rj">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vLC-sx-3rj">
                                         <rect key="frame" x="0.0" y="43" width="300" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -57,25 +40,39 @@
                                             <action selector="loginButtonTapped:" destination="gx9-g2-n4p" eventType="touchUpInside" id="NLH-PP-B1I"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-RC-hLl">
+                                        <rect key="frame" x="0.0" y="127" width="300" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Ur3-fw-XUO"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="touchIDButtonTapped:" destination="gx9-g2-n4p" eventType="touchUpInside" id="FV3-bo-kQe"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-XL-HMV">
+                                        <rect key="frame" x="0.0" y="216" width="300" height="50"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="LM2-qn-AHA"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.89640750709999995" blue="0.81125813869999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.14963229966129107" green="0.15894293527087325" blue="0.17223191624365486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Tky-Cv-akp" firstAttribute="centerX" secondItem="98m-bC-ns1" secondAttribute="centerX" id="3cO-nQ-uSl"/>
-                            <constraint firstItem="9e7-RC-hLl" firstAttribute="centerX" secondItem="98m-bC-ns1" secondAttribute="centerX" id="IVd-Ah-b0X"/>
-                            <constraint firstItem="f8R-XL-HMV" firstAttribute="top" secondItem="9e7-RC-hLl" secondAttribute="bottom" constant="40" id="f1M-4v-O3y"/>
-                            <constraint firstItem="98m-bC-ns1" firstAttribute="bottom" secondItem="f8R-XL-HMV" secondAttribute="bottom" constant="50" id="swx-Fq-qAW"/>
-                            <constraint firstItem="f8R-XL-HMV" firstAttribute="centerX" secondItem="98m-bC-ns1" secondAttribute="centerX" id="uIQ-0J-mx0"/>
                             <constraint firstItem="Tky-Cv-akp" firstAttribute="centerY" secondItem="98m-bC-ns1" secondAttribute="centerY" id="wn7-2q-XMs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="98m-bC-ns1"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="authButton" destination="9e7-RC-hLl" id="w1I-3u-Kox"/>
+                        <outlet property="authTextLabel" destination="f8R-XL-HMV" id="dq1-m7-s8S"/>
                         <outlet property="loginButton" destination="Ka8-dE-mlM" id="WVl-BS-6h0"/>
                         <outlet property="loginTextInput" destination="Qd9-GG-V4E" id="ECt-lN-8rB"/>
                         <outlet property="passwordTextInput" destination="vLC-sx-3rj" id="y3s-y0-FAZ"/>
@@ -97,7 +94,4 @@
             <point key="canvasLocation" x="786" y="52"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="lock" width="64" height="64"/>
-    </resources>
 </document>
