@@ -4,7 +4,7 @@ import SwiftSoup
 
 enum ProteinsListViewEvent {
     case viewDidLoad
-    case ligandCellTapped(ligandName: String)
+    case ligandCellTapped(ligandId: String)
 }
 
 enum ProteinsListCommand {
@@ -37,8 +37,8 @@ class ProteinsListKitchen {
         switch event {
         case .viewDidLoad:
             handleViewDidLoad()
-        case .ligandCellTapped(let ligandName):
-            loadLigandDetails(ligandName: ligandName)
+        case .ligandCellTapped(let ligandId):
+            loadLigandDetails(ligandId: ligandId)
         }
     }
 
@@ -62,8 +62,8 @@ class ProteinsListKitchen {
         }
     }
 
-    private func loadLigandDetails(ligandName: String) {
-        let url = URL(string: Constant.ligandInfoURL + ligandName)!
+    private func loadLigandDetails(ligandId: String) {
+        let url = URL(string: Constant.ligandInfoURL + ligandId)!
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(url).validate().responseData {
             responce in
@@ -94,15 +94,16 @@ class ProteinsListKitchen {
                     return
                 }
 
-                let ligand = LigandData(name: name,
+                let ligand = LigandData(id: ligandId,
+                                        name: name,
                                         identifiers: identifiers,
-                                        formula: formula,
+                                        formula: formula.replacingOccurrences(of: " ", with: ""),
                                         molecularWeight: molecularWeight,
                                         type: type,
                                         isomericSMILES: isomericSMILES,
                                         inChI: inChI,
                                         inChIKey: inChIKey,
-                                        image: "http" + image)
+                                        image: "https:" + image)
                 DispatchQueue.main.async {
                     self.delegate.perform(.routeToLigandDetailViewController(with: ligand))
                 }

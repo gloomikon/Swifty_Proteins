@@ -1,4 +1,7 @@
+import Foundation
+
 struct LigandData {
+    let id: String
     let name: String
     let identifiers: String
     let formula: String
@@ -8,4 +11,19 @@ struct LigandData {
     let inChI: String
     let inChIKey: String
     let image: String
+
+    var dictionary: [String: String] {
+        return ["Name": name,
+                "Identifiers": identifiers,
+                "Formula": formula,
+                "Molecular Weight": molecularWeight,
+                "Type": type,
+                "Isomeric SMILES": isomericSMILES,
+                "InChI": inChI,
+                "InChIKey": inChIKey
+        ]
+    }
+    var nsDictionary: NSDictionary {
+        return dictionary as NSDictionary
+    }
 }

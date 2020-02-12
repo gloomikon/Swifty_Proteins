@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         }
     }
     @IBOutlet private weak var authButton: UIButton!
+    
     @IBOutlet private weak var authTextLabel: UILabel!
 
     @IBOutlet private weak var loginButton: UIButton! {
@@ -79,6 +80,11 @@ class LoginViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layer.frame = view.bounds
@@ -116,6 +122,7 @@ class LoginViewController: UIViewController {
     @IBAction private func touchIDButtonTapped(_ sender: Any) {
         kitchen.receive(.userUsedTouchID)
     }
+
     @IBAction func loginButtonTapped(_ sender: Any) {
         guard
             let login = loginTextInput.text,

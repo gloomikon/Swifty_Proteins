@@ -68,20 +68,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="98m-bC-ns1"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" id="INu-a8-Giq"/>
                     <connections>
                         <outlet property="authButton" destination="9e7-RC-hLl" id="w1I-3u-Kox"/>
                         <outlet property="authTextLabel" destination="f8R-XL-HMV" id="dq1-m7-s8S"/>
                         <outlet property="loginButton" destination="Ka8-dE-mlM" id="WVl-BS-6h0"/>
                         <outlet property="loginTextInput" destination="Qd9-GG-V4E" id="ECt-lN-8rB"/>
                         <outlet property="passwordTextInput" destination="vLC-sx-3rj" id="y3s-y0-FAZ"/>
-                        <segue destination="oIH-Uz-1yq" kind="presentation" identifier="routeToProteinsList" modalPresentationStyle="fullScreen" id="SQs-ts-Mu8"/>
+                        <segue destination="oIH-Uz-1yq" kind="show" identifier="routeToProteinsList" id="SQs-ts-Mu8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97g-jt-8Me" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="36.830357142857139"/>
+            <point key="canvasLocation" x="1057.9710144927537" y="51.5625"/>
         </scene>
         <!--ProteinsListViewController-->
         <scene sceneID="rZr-1E-X1Y">
@@ -91,7 +90,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEt-jx-n0f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="52"/>
+            <point key="canvasLocation" x="1694.9275362318842" y="51.5625"/>
         </scene>
     </scenes>
 </document>
