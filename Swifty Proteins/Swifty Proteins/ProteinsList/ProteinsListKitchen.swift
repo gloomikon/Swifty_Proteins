@@ -63,7 +63,8 @@ class ProteinsListKitchen {
     }
 
     private func loadLigandDetails(ligandId: String) {
-        let url = URL(string: Constant.ligandInfoURL + ligandId)!
+        let urlString = Constant.ligandInfoURL + ligandId
+        let url = URL(string: urlString)!
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(url).validate().responseData {
             responce in
@@ -94,7 +95,8 @@ class ProteinsListKitchen {
                     return
                 }
 
-                let ligand = LigandData(id: ligandId,
+                let ligand = LigandData(url: urlString,
+                                        id: ligandId,
                                         name: name,
                                         identifiers: identifiers,
                                         formula: formula.replacingOccurrences(of: " ", with: ""),

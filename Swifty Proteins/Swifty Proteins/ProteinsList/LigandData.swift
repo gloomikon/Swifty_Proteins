@@ -1,6 +1,7 @@
 import Foundation
 
 struct LigandData {
+    let url: String
     let id: String
     let name: String
     let identifiers: String

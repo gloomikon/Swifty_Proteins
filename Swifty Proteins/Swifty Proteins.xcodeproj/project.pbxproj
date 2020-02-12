@@ -24,6 +24,7 @@
 		77C1A98323F3488100B0E386 /* LidandDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98223F3488100B0E386 /* LidandDataCell.swift */; };
 		77C1A98523F34BD200B0E386 /* UILabel+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98423F34BD200B0E386 /* UILabel+Subscript.swift */; };
 		77C1A98723F34BF100B0E386 /* String+IndicesOfSubscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98623F34BF100B0E386 /* String+IndicesOfSubscripts.swift */; };
+		77C1A98923F4166B00B0E386 /* LigandImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98823F4166B00B0E386 /* LigandImageViewController.swift */; };
 		77EA6F2423E82BA000212887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA6F2323E82BA000212887 /* AppDelegate.swift */; };
 		77EA6F2923E82BA000212887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2723E82BA000212887 /* Main.storyboard */; };
 		77EA6F2B23E82BA100212887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2A23E82BA100212887 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		77C1A98223F3488100B0E386 /* LidandDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LidandDataCell.swift; sourceTree = "<group>"; };
 		77C1A98423F34BD200B0E386 /* UILabel+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Subscript.swift"; sourceTree = "<group>"; };
 		77C1A98623F34BF100B0E386 /* String+IndicesOfSubscripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IndicesOfSubscripts.swift"; sourceTree = "<group>"; };
+		77C1A98823F4166B00B0E386 /* LigandImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigandImageViewController.swift; sourceTree = "<group>"; };
 		77EA6F2023E82BA000212887 /* Swifty Proteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Proteins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EA6F2323E82BA000212887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EA6F2823E82BA000212887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				77C1A98223F3488100B0E386 /* LidandDataCell.swift */,
+				77C1A98823F4166B00B0E386 /* LigandImageViewController.swift */,
 				774E40F323F2D82500532AC9 /* LigandDataViewController.swift */,
 				774E40F123F2D81000532AC9 /* LigandData.storyboard */,
 			);
@@ -291,6 +294,7 @@
 				774E40EF23F1F87400532AC9 /* UIColor.swift in Sources */,
 				77A81F7823EB646E00D215F4 /* UIViewController.swift in Sources */,
 				77C1A98523F34BD200B0E386 /* UILabel+Subscript.swift in Sources */,
+				77C1A98923F4166B00B0E386 /* LigandImageViewController.swift in Sources */,
 				774E40EB23F1E5A900532AC9 /* LigandData.swift in Sources */,
 				774E40F423F2D82500532AC9 /* LigandDataViewController.swift in Sources */,
 				77C1A98723F34BF100B0E386 /* String+IndicesOfSubscripts.swift in Sources */,

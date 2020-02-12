@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gx9-g2-n4p">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Tky-Cv-akp">
-                                <rect key="frame" x="57" y="320" width="300" height="266"/>
+                                <rect key="frame" x="57" y="310" width="300" height="286"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qd9-GG-V4E">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
@@ -41,16 +41,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-RC-hLl">
-                                        <rect key="frame" x="0.0" y="127" width="300" height="80"/>
+                                        <rect key="frame" x="0.0" y="127" width="300" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="Ur3-fw-XUO"/>
+                                            <constraint firstAttribute="height" constant="100" id="Ur3-fw-XUO"/>
                                         </constraints>
+                                        <state key="normal" image="faceID"/>
                                         <connections>
                                             <action selector="touchIDButtonTapped:" destination="gx9-g2-n4p" eventType="touchUpInside" id="FV3-bo-kQe"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-XL-HMV">
-                                        <rect key="frame" x="0.0" y="216" width="300" height="50"/>
+                                        <rect key="frame" x="0.0" y="236" width="300" height="50"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -93,4 +94,7 @@
             <point key="canvasLocation" x="1694.9275362318842" y="51.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="faceID" width="100" height="100"/>
+    </resources>
 </document>

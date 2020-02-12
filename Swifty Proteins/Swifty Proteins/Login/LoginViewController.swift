@@ -117,13 +117,11 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "routeToProteinsList", sender: self)
     }
 
-    // MARK: IBActions
-
     @IBAction private func touchIDButtonTapped(_ sender: Any) {
         kitchen.receive(.userUsedTouchID)
     }
 
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    @IBAction private func loginButtonTapped(_ sender: Any) {
         guard
             let login = loginTextInput.text,
             let password = passwordTextInput.text,

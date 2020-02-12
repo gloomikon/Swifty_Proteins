@@ -61,8 +61,8 @@ class ProteinsListViewController: UIViewController {
     {
         if segue.destination is LigandDataViewController {
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "List of proteins", style: .plain, target: nil, action: nil)
-            let vc = segue.destination as? LigandDataViewController
-            vc?.ligandData = ligandData
+            let vc = segue.destination as! LigandDataViewController
+            vc.ligandData = ligandData
         }
     }
 

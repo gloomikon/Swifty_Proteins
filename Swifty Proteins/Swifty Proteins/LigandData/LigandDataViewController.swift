@@ -9,6 +9,7 @@ class LigandDataViewController: UIViewController {
     @IBOutlet private weak var ligandImage: UIImageView! {
         didSet {
             ligandImage.layer.cornerRadius = 30
+            ligandImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showLigandImage)))
         }
     }
 
@@ -25,6 +26,11 @@ class LigandDataViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView! {
+        didSet {
+            loadingIndicator.hidesWhenStopped = true
+        }
+    }
 
     // MARK: Public properties
 
@@ -34,6 +40,7 @@ class LigandDataViewController: UIViewController {
 
     private let layer = CAGradientLayer()
     private let ligandInfoProperties = ["Name", "Identifiers", "Formula", "Molecular Weight", "Type", "Isomeric SMILES", "InChI", "InChIKey"]
+    
     // MARK: Life cycle
 
     override func viewDidLoad() {
@@ -48,14 +55,15 @@ class LigandDataViewController: UIViewController {
 
         // Load image
         let url = URL(string: ligandData!.image)
+        self.loadingIndicator.startAnimating()
         URLSession.shared.dataTask(with: url!) {
             (data, resp, err) in
             guard let data = data, err == nil else {
-//                self.loadingIndicator.stopAnimating()
+                self.loadingIndicator.stopAnimating()
                 return
             }
             DispatchQueue.main.async {
-//                self.loadingIndicator.stopAnimating()
+                self.loadingIndicator.stopAnimating()
                 self.ligandImage.image = UIImage(data: data)
             }
         }.resume()
@@ -83,6 +91,30 @@ class LigandDataViewController: UIViewController {
             break
         }
     }
+
+    // MARK: Private functions
+
+    @objc private func showLigandImage() {
+        performSegue(withIdentifier: "roueToLigandImageViewController", sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is LigandImageViewController {
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: ligandData!.id, style: .plain, target: nil, action: nil)
+            let vc = segue.destination as! LigandImageViewController
+            vc.image = ligandImage.image
+        }
+    }
+
+    @IBAction private func shareButtonTapped(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: [ligandImage.image!, ligandData!.url], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = view
+
+        present(activityVC, animated: true)
+    }
+
+
 }
 
 // MARK:
