@@ -32,7 +32,7 @@ class LigandImageViewController: UIViewController {
         imageView.image = image
 
         scrollView.contentSize = (imageView?.frame.size)!
-        scrollView.maximumZoomScale = 100
+        scrollView.maximumZoomScale = 15
     }
 
     // MARK: Private functions
