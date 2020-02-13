@@ -46,6 +46,8 @@ class LigandDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: ligandData!.id, style: .plain, target: nil, action: nil)
+
         // Add gradient
         layer.frame = view.bounds
         layer.colors = [UIColor.coldAir.cgColor, UIColor.morningMilk.cgColor]
@@ -101,9 +103,13 @@ class LigandDataViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is LigandImageViewController {
-            navigationItem.backBarButtonItem = UIBarButtonItem(title: ligandData!.id, style: .plain, target: nil, action: nil)
             let vc = segue.destination as! LigandImageViewController
             vc.image = ligandImage.image
+        }
+
+        if (segue.destination is LigandSceneViewController) {
+            let vc = segue.destination as! LigandSceneViewController
+			vc.ligandId = ligandData!.id
         }
     }
 
@@ -114,6 +120,9 @@ class LigandDataViewController: UIViewController {
         present(activityVC, animated: true)
     }
 
+    @IBAction func showSceneButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "routeToLigandScene", sender: nil)
+    }
 
 }
 

@@ -1,4 +1,3 @@
-import Foundation
 import Alamofire
 import SwiftSoup
 
@@ -13,7 +12,7 @@ enum ProteinsListCommand {
     case configure(with: [String])
 }
 
-protocol ProteinsListKitchenDelegate {
+protocol ProteinsListKitchenDelegate: class {
     func perform(_ command: ProteinsListCommand)
 }
 
@@ -22,12 +21,11 @@ class ProteinsListKitchen {
         static let fileNotFoundTitle = "File not found"
         static let fileNotFoundMessage = "File \"ligands.txt\" containing proteins list was not found."
         static let internetErrorTitle = "Error"
-        static let internetErrorMessage = "An error ocurred while loading the protein. Check your internet connection and try again."
-        static let dataParseErrorMessage = "Did not manage to parse ligand's data."
+        static let internetErrorMessage = "An error ocurred while loading data. Check your internet connection and try again."
         static let ligandInfoURL = "http://www.rcsb.org/ligand/"
     }
 
-    let delegate: ProteinsListKitchenDelegate
+	private weak var delegate: ProteinsListKitchenDelegate?
 
     init(delegate: ProteinsListKitchenDelegate) {
         self.delegate = delegate
@@ -49,13 +47,13 @@ class ProteinsListKitchen {
         let fileManager = FileManager.default
 
         guard fileManager.fileExists(atPath: path!) else {
-            delegate.perform(.showAlert(title: Constant.fileNotFoundTitle, message: Constant.fileNotFoundMessage))
+			delegate?.perform(.showAlert(title: Constant.fileNotFoundTitle, message: Constant.fileNotFoundMessage))
             return
         }
         do {
             let content = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
             let proteins = (content.components(separatedBy: "\n") as [String]).filter({ !$0.isEmpty })
-            delegate.perform(.configure(with: proteins))
+			delegate?.perform(.configure(with: proteins))
         }
         catch let error as NSError {
             print(error.debugDescription)
@@ -71,7 +69,7 @@ class ProteinsListKitchen {
             guard let data = responce.data, let utf8Text = String(data: data, encoding: .utf8) else {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 DispatchQueue.main.async {
-                    self.delegate.perform(.showAlert(title: Constant.internetErrorTitle, message: Constant.internetErrorMessage))
+					self.delegate?.perform(.showAlert(title: Constant.internetErrorTitle, message: Constant.internetErrorMessage))
                 }
                 return
             }
@@ -90,7 +88,7 @@ class ProteinsListKitchen {
                 else {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     DispatchQueue.main.async {
-                        self.delegate.perform(.showAlert(title: Constant.internetErrorTitle, message: Constant.dataParseErrorMessage))
+						self.delegate?.perform(.showAlert(title: Constant.internetErrorTitle, message: Constant.internetErrorMessage))
                     }
                     return
                 }
@@ -107,11 +105,10 @@ class ProteinsListKitchen {
                                         inChIKey: inChIKey,
                                         image: "https:" + image)
                 DispatchQueue.main.async {
-                    self.delegate.perform(.routeToLigandDetailViewController(with: ligand))
+					self.delegate?.perform(.routeToLigandDetailViewController(with: ligand))
                 }
             }
-            catch let error {
-                print(error.localizedDescription)
+            catch {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false

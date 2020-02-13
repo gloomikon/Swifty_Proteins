@@ -116,7 +116,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="qCe-Ij-8CC">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="info.circle" catalog="system" id="zbu-01-Yro"/>
+                            <barButtonItem title="Item" image="view.3d" catalog="system" id="zbu-01-Yro">
+                                <connections>
+                                    <action selector="showSceneButtonTapped:" destination="Uv1-Wg-aWp" id="zMZ-1l-olD"/>
+                                    <segue destination="20e-uu-PN3" kind="show" identifier="routeToLigandScene" id="7B5-Ep-Trk"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="square.and.arrow.up" catalog="system" id="e9O-DI-PWJ">
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="Uv1-Wg-aWp" id="Ok4-M8-v8t"/>
@@ -137,6 +142,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBD-Sb-Lew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="598.55072463768124" y="62.946428571428569"/>
+        </scene>
+        <!--LigandSceneViewController-->
+        <scene sceneID="Ulk-Rh-kJT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LigandScene" referencedIdentifier="LigandSceneViewController" id="20e-uu-PN3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="E60-sR-kz9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpz-hb-pCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1435" y="-190"/>
         </scene>
         <!--Ligand Image View Controller-->
         <scene sceneID="7w5-jP-HPR">
@@ -190,11 +205,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPi-vG-OcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328.985507246377" y="62.946428571428569"/>
+            <point key="canvasLocation" x="1487" y="258"/>
         </scene>
     </scenes>
     <resources>
-        <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+        <image name="view.3d" catalog="system" width="64" height="36"/>
     </resources>
 </document>

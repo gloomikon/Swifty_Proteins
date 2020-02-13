@@ -25,6 +25,9 @@
 		77C1A98523F34BD200B0E386 /* UILabel+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98423F34BD200B0E386 /* UILabel+Subscript.swift */; };
 		77C1A98723F34BF100B0E386 /* String+IndicesOfSubscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98623F34BF100B0E386 /* String+IndicesOfSubscripts.swift */; };
 		77C1A98923F4166B00B0E386 /* LigandImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1A98823F4166B00B0E386 /* LigandImageViewController.swift */; };
+		77E24DFC23F43EEC00625CAE /* LigandScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E24DFB23F43EEC00625CAE /* LigandScene.storyboard */; };
+		77E24DFE23F43F0000625CAE /* LigandSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E24DFD23F43F0000625CAE /* LigandSceneViewController.swift */; };
+		77E24E0023F4AC1D00625CAE /* LigandSceneKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E24DFF23F4AC1D00625CAE /* LigandSceneKitchen.swift */; };
 		77EA6F2423E82BA000212887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA6F2323E82BA000212887 /* AppDelegate.swift */; };
 		77EA6F2923E82BA000212887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2723E82BA000212887 /* Main.storyboard */; };
 		77EA6F2B23E82BA100212887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EA6F2A23E82BA100212887 /* Assets.xcassets */; };
@@ -50,6 +53,9 @@
 		77C1A98423F34BD200B0E386 /* UILabel+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Subscript.swift"; sourceTree = "<group>"; };
 		77C1A98623F34BF100B0E386 /* String+IndicesOfSubscripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IndicesOfSubscripts.swift"; sourceTree = "<group>"; };
 		77C1A98823F4166B00B0E386 /* LigandImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigandImageViewController.swift; sourceTree = "<group>"; };
+		77E24DFB23F43EEC00625CAE /* LigandScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LigandScene.storyboard; sourceTree = "<group>"; };
+		77E24DFD23F43F0000625CAE /* LigandSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigandSceneViewController.swift; sourceTree = "<group>"; };
+		77E24DFF23F4AC1D00625CAE /* LigandSceneKitchen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigandSceneKitchen.swift; sourceTree = "<group>"; };
 		77EA6F2023E82BA000212887 /* Swifty Proteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty Proteins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77EA6F2323E82BA000212887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77EA6F2823E82BA000212887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +122,16 @@
 			path = ProteinsList;
 			sourceTree = "<group>";
 		};
+		77E24DFA23F43EC600625CAE /* LigandScene */ = {
+			isa = PBXGroup;
+			children = (
+				77E24DFF23F4AC1D00625CAE /* LigandSceneKitchen.swift */,
+				77E24DFD23F43F0000625CAE /* LigandSceneViewController.swift */,
+				77E24DFB23F43EEC00625CAE /* LigandScene.storyboard */,
+			);
+			path = LigandScene;
+			sourceTree = "<group>";
+		};
 		77EA6F1723E82BA000212887 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				77A81F8223EEE3F400D215F4 /* ligands.txt */,
+				77E24DFA23F43EC600625CAE /* LigandScene */,
 				774E40F023F2D7EF00532AC9 /* LigandData */,
 				77A81F7923EC187C00D215F4 /* ProteinsList */,
 				779A2BC823E8B41400F7BBF3 /* Login */,
@@ -230,6 +247,7 @@
 			files = (
 				77EA6F2E23E82BA100212887 /* LaunchScreen.storyboard in Resources */,
 				77A81F8323EEE3F400D215F4 /* ligands.txt in Resources */,
+				77E24DFC23F43EEC00625CAE /* LigandScene.storyboard in Resources */,
 				779A2BCC23E8B45500F7BBF3 /* LoginViewController.storyboard in Resources */,
 				77EA6F2B23E82BA100212887 /* Assets.xcassets in Resources */,
 				774E40F223F2D81000532AC9 /* LigandData.storyboard in Resources */,
@@ -289,9 +307,11 @@
 			files = (
 				779A2BCA23E8B44600F7BBF3 /* LoginViewController.swift in Sources */,
 				77A81F8523EEE6EE00D215F4 /* ProteinsCell.swift in Sources */,
+				77E24DFE23F43F0000625CAE /* LigandSceneViewController.swift in Sources */,
 				774E40ED23F1E67300532AC9 /* ProteinsListKitchen.swift in Sources */,
 				77A81F7523EB61FA00D215F4 /* LoginKitchen.swift in Sources */,
 				774E40EF23F1F87400532AC9 /* UIColor.swift in Sources */,
+				77E24E0023F4AC1D00625CAE /* LigandSceneKitchen.swift in Sources */,
 				77A81F7823EB646E00D215F4 /* UIViewController.swift in Sources */,
 				77C1A98523F34BD200B0E386 /* UILabel+Subscript.swift in Sources */,
 				77C1A98923F4166B00B0E386 /* LigandImageViewController.swift in Sources */,

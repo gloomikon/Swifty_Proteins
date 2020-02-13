@@ -9,7 +9,7 @@ enum LoginCommand {
     case authenticateUser
 }
 
-protocol LoginKitchenDelegate {
+protocol LoginKitchenDelegate: class {
     func perform(_ command: LoginCommand)
 }
 
@@ -20,7 +20,7 @@ class LoginKitchen {
         static let invalidLoginTitle = "Login failed"
         static let invalidLoginMessage = "Incorrect password or/and login. Try again"
     }
-    let delegate: LoginKitchenDelegate
+    private weak var delegate: LoginKitchenDelegate?
 
     init(delegate: LoginKitchenDelegate) {
         self.delegate = delegate
@@ -39,14 +39,14 @@ class LoginKitchen {
 
     private func handleUserEnteredPassword(login: String, password: String) {
         if login == Constant.login && password == Constant.password {
-            delegate.perform(.routeToProteinsList)
+			delegate?.perform(.routeToProteinsList)
         }
         else {
-            delegate.perform(.showAlert(title: Constant.invalidLoginTitle, message: Constant.invalidLoginMessage))
+			delegate?.perform(.showAlert(title: Constant.invalidLoginTitle, message: Constant.invalidLoginMessage))
         }
     }
 
     private func handleUserUsedTouchID() {
-        delegate.perform(.authenticateUser)
+		delegate?.perform(.authenticateUser)
     }
 }
