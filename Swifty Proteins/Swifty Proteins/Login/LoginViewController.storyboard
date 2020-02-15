@@ -61,7 +61,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Ur3-fw-XUO"/>
                                         </constraints>
-                                        <state key="normal" image="faceID"/>
                                         <connections>
                                             <action selector="touchIDButtonTapped:" destination="gx9-g2-n4p" eventType="touchUpInside" id="FV3-bo-kQe"/>
                                         </connections>
@@ -110,7 +109,4 @@
             <point key="canvasLocation" x="1694.9275362318842" y="51.5625"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="faceID" width="100" height="100"/>
-    </resources>
 </document>

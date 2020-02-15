@@ -54,7 +54,6 @@ class LoginViewController: UIViewController {
 
     @IBOutlet private weak var loginButton: UIButton! {
         didSet {
-
             loginButton.layer.cornerRadius = 10
             loginButton.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
 //            loginButton.backgroundColor = UIColor.darkGray

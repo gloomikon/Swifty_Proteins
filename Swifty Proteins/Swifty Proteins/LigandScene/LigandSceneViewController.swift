@@ -9,6 +9,11 @@ class LigandSceneViewController: UIViewController {
 
 	// MARK: IBOutlets
 
+    @IBOutlet weak var settingsView: UIView! {
+        didSet {
+            settingsView.layer.cornerRadius = 10
+        }
+    }
 
 	// MARK: Private properties
 
@@ -16,6 +21,11 @@ class LigandSceneViewController: UIViewController {
 	private var scnScene: SCNScene!
 	private var cameraNode: SCNNode!
 	private lazy var kitchen = LigandSceneKitchen(delegate: self)
+    private lazy var slideInTransitioningDelegate = SlideInPresentationManager()
+    private var nodesToHide = [SCNNode]()
+    private var labelNodes = [SCNNode]()
+    private var shouldShowHydrogens = true
+    private var shouldHaveDarkBackground = false
 
 	// MARK: Life cycle
 
@@ -30,6 +40,7 @@ class LigandSceneViewController: UIViewController {
 		scnView.autoenablesDefaultLighting = true
 
 		scnScene = SCNScene()
+
 		scnView.scene = scnScene
 		scnView.isPlaying = true
 
@@ -39,6 +50,29 @@ class LigandSceneViewController: UIViewController {
 
 		scnScene.rootNode.addChildNode(cameraNode)
     }
+
+    // MARK: IBAction
+
+    @IBAction func shareButtonTapped(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: [scnView.snapshot()], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = view
+
+        present(activityVC, animated: true)
+    }
+
+    // MARK: Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? SettingsViewController {
+            controller.delegate = self
+            controller.configure(shouldShowHydrogens: shouldShowHydrogens, shouldHaveDarkBackground: shouldHaveDarkBackground)
+            slideInTransitioningDelegate.disableCompactHeight = false
+            controller.transitioningDelegate = slideInTransitioningDelegate
+            controller.modalPresentationStyle = .custom
+        }
+    }
+
+    // MARK: SceneKit settings
 
 	override var shouldAutorotate: Bool {
 		return true
@@ -60,18 +94,28 @@ class LigandSceneViewController: UIViewController {
 	// MARK: Private functions
 
 	// https://www.youtube.com/watch?v=haZmF3ZYIYc&list=RDQM752rPUxMPc8&index=1
-	private func createAtom(x: Float, y: Float, z: Float) {
+    private func createAtom(x: Float, y: Float, z: Float, color: UIColor, hiddable: Bool) {
 		let atom = SCNSphere(radius: 0.2)
-		atom.materials.first?.diffuse.contents = UIColor.red
+		atom.materials.first?.diffuse.contents = color
 		let atomNode = SCNNode(geometry: atom)
 		atomNode.position = SCNVector3(x: x, y: y, z: z)
 		scnScene.rootNode.addChildNode(atomNode)
+        if hiddable {
+            nodesToHide.append(atomNode)
+        }
 	}
 
-	private func connectAtoms(atom1: (x: Float, y: Float, z: Float), atom2: (x: Float, y: Float, z: Float)) {
-		let startPoint = SCNVector3(x: atom1.x, y: atom1.y, z: atom1.z)
-		let endPoint = SCNVector3(x: atom2.x, y: atom2.y, z: atom2.z)
+    private func createConnection(atom1: Atom, atom2: Atom, hiddable: Bool) {
+        let startPoint = SCNVector3(x: atom1.x, y: atom1.y, z: atom1.z)
+        let middlePoint = SCNVector3(x: (atom1.x + atom2.x) / 2, y: (atom1.y + atom2.y) / 2, z: (atom1.z + atom2.z) / 2)
+        let endPoint = SCNVector3(x: atom2.x, y: atom2.y, z: atom2.z)
 
+        drawLines(startPoint: startPoint, endPoint: middlePoint, color: atom1.color, hiddable: hiddable)
+        drawLines(startPoint: middlePoint, endPoint: endPoint, color: atom2.color, hiddable: hiddable)
+    }
+
+    //https://stackoverflow.com/a/41526915/8704249
+    private func drawLines(startPoint: SCNVector3, endPoint: SCNVector3, color: UIColor, hiddable: Bool) {
 		let height = CGFloat(GLKVector3Distance(SCNVector3ToGLKVector3(startPoint), SCNVector3ToGLKVector3(endPoint)))
 		let startNode = SCNNode()
 		let endNode = SCNNode()
@@ -82,8 +126,8 @@ class LigandSceneViewController: UIViewController {
 		let zAxisNode = SCNNode()
 		zAxisNode.eulerAngles.x = .pi / 2
 
-		let cylinderGeometry = SCNCylinder(radius: 0.05, height: height)
-		cylinderGeometry.firstMaterial?.diffuse.contents = UIColor.darkGray
+		let cylinderGeometry = SCNCylinder(radius: 0.1, height: height)
+		cylinderGeometry.firstMaterial?.diffuse.contents = color
 		let cylinder = SCNNode(geometry: cylinderGeometry)
 
 		cylinder.position.y = Float(-height / 2)
@@ -126,13 +170,39 @@ class LigandSceneViewController: UIViewController {
 		}
 
 		scnScene.rootNode.addChildNode(returnNode)
+        if hiddable {
+            nodesToHide.append(returnNode)
+        }
 	}
 }
 
-extension LigandSceneViewController: SCNSceneRendererDelegate {
-	func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
-		glLineWidth(100000)
+// MARK: SettingsViewControllerDelegate
+
+extension LigandSceneViewController: SettingsViewControllerDelegate {
+    func showHydrogens() {
+        shouldShowHydrogens = true
+        nodesToHide.forEach {
+            scnScene.rootNode.addChildNode($0)
+        }
     }
+
+    func hideHydrogens() {
+        shouldShowHydrogens = false
+        nodesToHide.forEach {
+            $0.removeFromParentNode()
+        }
+    }
+
+    func makeDarkBackground() {
+        shouldHaveDarkBackground = true
+        scnView.backgroundColor = UIColor.black
+    }
+
+    func makeLightBackground() {
+        shouldHaveDarkBackground = false
+        scnView.backgroundColor = UIColor.white
+    }
+
 }
 
 // MARK: LigandSceneKitchenDelegate
@@ -142,10 +212,10 @@ extension LigandSceneViewController: LigandSceneKitchenDelegate {
 		switch command {
 		case .showAlert(let title, let message):
 			displayAlert(title: title, message: message)
-		case .createAtom(let atom):
-			createAtom(x: atom.x, y: atom.y, z: atom.z)
-		case .connectAtoms(let atom1, let atom2):
-			connectAtoms(atom1: atom1, atom2: atom2)
+		case .createAtom(let atom, let hiddable):
+            createAtom(x: atom.x, y: atom.y, z: atom.z, color: atom.color, hiddable: hiddable)
+		case .createConnection(let atom1, let atom2, let hiddable):
+            createConnection(atom1: atom1, atom2: atom2, hiddable: hiddable)
 		}
 	}
 }

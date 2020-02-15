@@ -116,7 +116,7 @@ class LigandDataViewController: UIViewController {
     @IBAction private func shareButtonTapped(_ sender: Any) {
         let activityVC = UIActivityViewController(activityItems: [ligandImage.image!, ligandData!.url], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = view
-
+        
         present(activityVC, animated: true)
     }
 
