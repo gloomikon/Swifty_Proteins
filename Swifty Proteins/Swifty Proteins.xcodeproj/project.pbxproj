@@ -18,6 +18,9 @@
 		77A2CAB423F7E96000929B56 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2CAB323F7E96000929B56 /* SlideInPresentationController.swift */; };
 		77A2CAB623F7FB3E00929B56 /* UIView+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2CAB523F7FB3E00929B56 /* UIView+RoundedCorners.swift */; };
 		77A2CAB823F831E400929B56 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2CAB723F831E400929B56 /* SlideInPresentationAnimator.swift */; };
+		77A2CABA23F8A22700929B56 /* AtomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2CAB923F8A22700929B56 /* AtomViewController.swift */; };
+		77A2CABE23F8A29400929B56 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 77A2CABD23F8A29400929B56 /* PeriodicTableJSON.json */; };
+		77A2CAC123F8A7C700929B56 /* Atom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A2CAC023F8A7C700929B56 /* Atom.storyboard */; };
 		77A523EF23F6B15E0032DE16 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A523EE23F6B15E0032DE16 /* SlideInPresentationManager.swift */; };
 		77A523F123F6B2E80032DE16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A523F023F6B2E80032DE16 /* SettingsViewController.swift */; };
 		77A81F7523EB61FA00D215F4 /* LoginKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A81F7423EB61F900D215F4 /* LoginKitchen.swift */; };
@@ -51,6 +54,9 @@
 		77A2CAB323F7E96000929B56 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
 		77A2CAB523F7FB3E00929B56 /* UIView+RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCorners.swift"; sourceTree = "<group>"; };
 		77A2CAB723F831E400929B56 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
+		77A2CAB923F8A22700929B56 /* AtomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomViewController.swift; sourceTree = "<group>"; };
+		77A2CABD23F8A29400929B56 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = SOURCE_ROOT; };
+		77A2CAC023F8A7C700929B56 /* Atom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Atom.storyboard; path = "Swifty Proteins/Atom/Atom.storyboard"; sourceTree = SOURCE_ROOT; };
 		77A523EE23F6B15E0032DE16 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
 		77A523F023F6B2E80032DE16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		77A81F7423EB61F900D215F4 /* LoginKitchen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKitchen.swift; sourceTree = "<group>"; };
@@ -119,6 +125,15 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		77A2CABF23F8A78300929B56 /* Atom */ = {
+			isa = PBXGroup;
+			children = (
+				77A2CAB923F8A22700929B56 /* AtomViewController.swift */,
+				77A2CAC023F8A7C700929B56 /* Atom.storyboard */,
+			);
+			path = Atom;
+			sourceTree = "<group>";
+		};
 		77A81F7623EB645000D215F4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				77A81F8223EEE3F400D215F4 /* ligands.txt */,
+				77A2CABD23F8A29400929B56 /* PeriodicTableJSON.json */,
+				77A2CABF23F8A78300929B56 /* Atom */,
 				77E24DFA23F43EC600625CAE /* LigandScene */,
 				774E40F023F2D7EF00532AC9 /* LigandData */,
 				77A81F7923EC187C00D215F4 /* ProteinsList */,
@@ -273,6 +290,8 @@
 				77E24DFC23F43EEC00625CAE /* LigandScene.storyboard in Resources */,
 				779A2BCC23E8B45500F7BBF3 /* LoginViewController.storyboard in Resources */,
 				77EA6F2B23E82BA100212887 /* Assets.xcassets in Resources */,
+				77A2CAC123F8A7C700929B56 /* Atom.storyboard in Resources */,
+				77A2CABE23F8A29400929B56 /* PeriodicTableJSON.json in Resources */,
 				774E40F223F2D81000532AC9 /* LigandData.storyboard in Resources */,
 				77EA6F2923E82BA000212887 /* Main.storyboard in Resources */,
 				77A81F7B23EC189800D215F4 /* ProteinsList.storyboard in Resources */,
@@ -337,6 +356,7 @@
 				77E24E0023F4AC1D00625CAE /* LigandSceneKitchen.swift in Sources */,
 				77A2CAB823F831E400929B56 /* SlideInPresentationAnimator.swift in Sources */,
 				77A2CAB623F7FB3E00929B56 /* UIView+RoundedCorners.swift in Sources */,
+				77A2CABA23F8A22700929B56 /* AtomViewController.swift in Sources */,
 				77A81F7823EB646E00D215F4 /* UIViewController.swift in Sources */,
 				77C1A98523F34BD200B0E386 /* UILabel+Subscript.swift in Sources */,
 				77C1A98923F4166B00B0E386 /* LigandImageViewController.swift in Sources */,

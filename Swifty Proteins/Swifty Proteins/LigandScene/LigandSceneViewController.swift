@@ -45,7 +45,7 @@ class LigandSceneViewController: UIViewController {
 
 		cameraNode = SCNNode()
 		cameraNode.camera = SCNCamera()
-		cameraNode.position = SCNVector3(x: 0, y: 0, z: 30)
+		cameraNode.position = SCNVector3(x: 0, y: 0, z: 20)
 
 		scnScene.rootNode.addChildNode(cameraNode)
 
@@ -69,6 +69,13 @@ class LigandSceneViewController: UIViewController {
             controller.delegate = self
             controller.configure(shouldShowHydrogens: shouldShowHydrogens, shouldHaveDarkBackground: shouldHaveDarkBackground)
             slideInTransitioningDelegate.disableCompactHeight = false
+            slideInTransitioningDelegate.direction = .right
+            controller.transitioningDelegate = slideInTransitioningDelegate
+            controller.modalPresentationStyle = .custom
+        }
+        if let controller = segue.destination as? AtomViewController {
+            slideInTransitioningDelegate.disableCompactHeight = true
+            slideInTransitioningDelegate.direction = .bottom
             controller.transitioningDelegate = slideInTransitioningDelegate
             controller.modalPresentationStyle = .custom
         }
@@ -107,8 +114,7 @@ class LigandSceneViewController: UIViewController {
                 return
             }
 
-            // TODO
-            print(name)
+            performSegue(withIdentifier: "showAtomInfo", sender: nil)
         }
     }
 

@@ -3,11 +3,15 @@ import UIKit
 class SlideInPresentationController: UIPresentationController {
     private enum Constant {
         static let settingViewWidth: CGFloat = 200
+        static let atomInfoViewHeight: CGFloat = 350
     }
     private var dimmingView: UIView!
+    private let direction: PresentationDirection
 
-    override init(presentedViewController: UIViewController,
-                  presenting presentingViewController: UIViewController?) {
+    init(presentedViewController: UIViewController,
+                  presenting presentingViewController: UIViewController?,
+                  direction: PresentationDirection) {
+        self.direction = direction
         super.init(presentedViewController: presentedViewController,
                    presenting: presentingViewController)
         self.presentedView?.roundCorners([.topLeft, .bottomLeft], radius: 25)
@@ -71,9 +75,13 @@ class SlideInPresentationController: UIPresentationController {
      This method receives the content container and parent view’s size, and then it calculates the size for the presented content. In this code, you restrict the presented view to 2/3 of the screen by returning 2/3 the width for presentations.
      */
 
-    override func size(forChildContentContainer container: UIContentContainer,
-                       withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSize(width: Constant.settingViewWidth, height: parentSize.height)
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+        switch direction {
+        case .right:
+            return CGSize(width: Constant.settingViewWidth, height: parentSize.height)
+        case .bottom:
+            return CGSize(width: parentSize.width, height: Constant.atomInfoViewHeight)
+        }
     }
 
     override var frameOfPresentedViewInContainerView: CGRect {
@@ -81,8 +89,12 @@ class SlideInPresentationController: UIPresentationController {
         frame.size = size(forChildContentContainer: presentedViewController,
                           withParentContainerSize: containerView!.bounds.size)
 
-        frame.origin.x = containerView!.frame.width - Constant.settingViewWidth
-
+        switch direction {
+        case .right:
+            frame.origin.x = containerView!.frame.width - Constant.settingViewWidth
+        case .bottom:
+            frame.origin.y = containerView!.frame.height - Constant.atomInfoViewHeight
+        }
         return frame
     }
 }

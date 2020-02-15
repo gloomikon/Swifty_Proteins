@@ -5,11 +5,13 @@ import UIKit
 */
 
 class SlideInPresentationAnimator: NSObject {
+    let direction: PresentationDirection
     let isPresentation: Bool
 
-    init(isPresentation: Bool) {
-      self.isPresentation = isPresentation
-      super.init()
+    init(direction: PresentationDirection, isPresentation: Bool) {
+        self.direction = direction
+        self.isPresentation = isPresentation
+        super.init()
     }
 }
 
@@ -41,21 +43,26 @@ extension SlideInPresentationAnimator: UIViewControllerAnimatedTransitioning {
     let presentedFrame = transitionContext.finalFrame(for: controller)
     var dismissedFrame = presentedFrame
 
-    dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
-
+    switch direction {
+    case .right:
+        dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
+    case .bottom:
+        dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
+    }
+    
     let initialFrame = isPresentation ? dismissedFrame : presentedFrame
     let finalFrame = isPresentation ? presentedFrame : dismissedFrame
-
+    
     let animationDuration = transitionDuration(using: transitionContext)
     controller.view.frame = initialFrame
     UIView.animate(withDuration: animationDuration,
-    animations: {
-        controller.view.frame = finalFrame
+                   animations: {
+                    controller.view.frame = finalFrame
     }, completion: { finished in
-      if !self.isPresentation {
-        controller.view.removeFromSuperview()
-      }
-      transitionContext.completeTransition(finished)
+        if !self.isPresentation {
+            controller.view.removeFromSuperview()
+        }
+        transitionContext.completeTransition(finished)
     })
-  }
+    }
 }

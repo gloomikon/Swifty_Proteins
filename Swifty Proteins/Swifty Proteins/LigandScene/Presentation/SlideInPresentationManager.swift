@@ -1,6 +1,12 @@
 import UIKit
 
+enum PresentationDirection {
+  case right
+  case bottom
+}
+
 class SlideInPresentationManager: NSObject {
+    var direction: PresentationDirection = .right
     var disableCompactHeight = false
 }
 
@@ -8,17 +14,17 @@ class SlideInPresentationManager: NSObject {
 
 extension SlideInPresentationManager: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        let presentationController = SlideInPresentationController(presentedViewController: presented, presenting: presenting)
+        let presentationController = SlideInPresentationController(presentedViewController: presented, presenting: presenting, direction: direction)
         presentationController.delegate = self
         return presentationController
     }
 
     func animationController( forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideInPresentationAnimator(isPresentation: true)
+        return SlideInPresentationAnimator(direction: direction, isPresentation: true)
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideInPresentationAnimator(isPresentation: false)
+        return SlideInPresentationAnimator(direction: direction, isPresentation: false)
     }
 }
 
