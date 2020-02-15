@@ -25,7 +25,6 @@ class AtomViewController: UIViewController {
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureRecognizer:)))
         view.addGestureRecognizer(tapRecognizer)
-        print("viewDidLoad")
     }
 
     // MARK: Private functions

@@ -161,7 +161,6 @@
 		77E24DFA23F43EC600625CAE /* LigandScene */ = {
 			isa = PBXGroup;
 			children = (
-				77A2CAB223F7E75100929B56 /* Presentation */,
 				77E24DFF23F4AC1D00625CAE /* LigandSceneKitchen.swift */,
 				77A523F023F6B2E80032DE16 /* SettingsViewController.swift */,
 				77E24DFD23F43F0000625CAE /* LigandSceneViewController.swift */,
@@ -198,6 +197,7 @@
 				774E40F023F2D7EF00532AC9 /* LigandData */,
 				77A81F7923EC187C00D215F4 /* ProteinsList */,
 				779A2BC823E8B41400F7BBF3 /* Login */,
+				77A2CAB223F7E75100929B56 /* Presentation */,
 				77A81F7623EB645000D215F4 /* Extensions */,
 				77EA6F2323E82BA000212887 /* AppDelegate.swift */,
 				77EA6F2723E82BA000212887 /* Main.storyboard */,
