@@ -29,7 +29,6 @@ class LigandSceneViewController: UIViewController {
 
 	// MARK: Life cycle
 
-
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +48,9 @@ class LigandSceneViewController: UIViewController {
 		cameraNode.position = SCNVector3(x: 0, y: 0, z: 30)
 
 		scnScene.rootNode.addChildNode(cameraNode)
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        scnView.addGestureRecognizer(tapGesture)
     }
 
     // MARK: IBAction
@@ -93,12 +95,30 @@ class LigandSceneViewController: UIViewController {
 
 	// MARK: Private functions
 
+    // https://stackoverflow.com/questions/54409801/getting-location-of-tap-on-scnsphere-swift-scenekit-ios
+    @objc func handleTap(_ gestureRecognize: UIGestureRecognizer) {
+        let p = gestureRecognize.location(in: scnView)
+        let hitResults = scnView.hitTest(p, options: [:])
+        if hitResults.count > 0 {
+            // retrieved the first clicked object
+            let result: SCNHitTestResult = hitResults[0]
+
+            guard let name = result.node.name else {
+                return
+            }
+
+            // TODO
+            print(name)
+        }
+    }
+
 	// https://www.youtube.com/watch?v=haZmF3ZYIYc&list=RDQM752rPUxMPc8&index=1
-    private func createAtom(x: Float, y: Float, z: Float, color: UIColor, hiddable: Bool) {
-		let atom = SCNSphere(radius: 0.2)
-		atom.materials.first?.diffuse.contents = color
-		let atomNode = SCNNode(geometry: atom)
-		atomNode.position = SCNVector3(x: x, y: y, z: z)
+    private func createAtom(atom: Atom, hiddable: Bool) {
+		let atomSphere = SCNSphere(radius: 0.2)
+        atomSphere.materials.first?.diffuse.contents = atom.color
+		let atomNode = SCNNode(geometry: atomSphere)
+        atomNode.position = SCNVector3(x: atom.x, y: atom.y, z: atom.z)
+        atomNode.name = atom.name
 		scnScene.rootNode.addChildNode(atomNode)
         if hiddable {
             nodesToHide.append(atomNode)
@@ -213,7 +233,7 @@ extension LigandSceneViewController: LigandSceneKitchenDelegate {
 		case .showAlert(let title, let message):
 			displayAlert(title: title, message: message)
 		case .createAtom(let atom, let hiddable):
-            createAtom(x: atom.x, y: atom.y, z: atom.z, color: atom.color, hiddable: hiddable)
+            createAtom(atom: atom, hiddable: hiddable)
 		case .createConnection(let atom1, let atom2, let hiddable):
             createConnection(atom1: atom1, atom2: atom2, hiddable: hiddable)
 		}
