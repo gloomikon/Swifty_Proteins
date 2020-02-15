@@ -115,7 +115,7 @@ extension ProteinsListViewController: UISearchBarDelegate {
         guard let search = searchBar.text else {
             return
         }
-        filteredProteins = search.isEmpty ? proteins : proteins.filter({$0.contains(search)})
+        filteredProteins = search.isEmpty ? proteins : proteins.filter({$0.lowercased().contains(search.lowercased())})
         proteinsTableView.reloadData()
     }
 }
