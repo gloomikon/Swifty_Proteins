@@ -19,8 +19,19 @@ class SettingsViewController: UIViewController {
 
     // MARK: IBOutlets
 
-    @IBOutlet weak var showHydrogensSwitcher: UISwitch!
-    @IBOutlet weak var darkBackgroundSwitcher: UISwitch!
+    @IBOutlet private weak var showHydrogensSwitcher: UISwitch! {
+        didSet {
+            showHydrogensSwitcher.backgroundColor = UIColor.lightGray
+            showHydrogensSwitcher.layer.cornerRadius = showHydrogensSwitcher.frame.height / 2
+        }
+    }
+
+    @IBOutlet private weak var darkBackgroundSwitcher: UISwitch! {
+        didSet {
+            darkBackgroundSwitcher.backgroundColor = UIColor.lightGray
+            darkBackgroundSwitcher.layer.cornerRadius = darkBackgroundSwitcher.frame.height / 2
+        }
+    }
     
     // MARK: Public properties
 

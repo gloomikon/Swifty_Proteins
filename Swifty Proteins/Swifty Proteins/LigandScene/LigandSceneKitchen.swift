@@ -4,6 +4,12 @@ enum LigandSceneViewEvent {
 	case viewDidLoad(ligandId: String)
 }
 
+enum LigandSceneCommand {
+	case showAlert(title: String, message: String)
+    case createAtom(atom: Atom, hiddable: Bool)
+	case createConnection(atom1: Atom, atom2: Atom, hiddable: Bool)
+}
+
 struct Atom {
     let x: Float
     let y: Float
@@ -13,24 +19,14 @@ struct Atom {
     let name: String
 }
 
-enum LigandSceneCommand {
-	case showAlert(title: String, message: String)
-    case createAtom(atom: Atom, hiddable: Bool)
-	case createConnection(atom1: Atom, atom2: Atom, hiddable: Bool)
-}
-
-
 protocol LigandSceneKitchenDelegate: class {
 	func peform(_ command: LigandSceneCommand)
 }
 
 class LigandSceneKitchen {
-	private enum Constant {
-	}
-
 	private weak var delegate: LigandSceneKitchenDelegate?
 
-	init (delegate: LigandSceneKitchenDelegate) {
+	init(delegate: LigandSceneKitchenDelegate) {
 		self.delegate = delegate
 	}
 
@@ -52,9 +48,6 @@ class LigandSceneKitchen {
 			responce in
 			guard let data = responce.data, let utf8Text = String(data: data, encoding: .utf8) else {
 				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				DispatchQueue.main.async {
-//					self.delegate.perform(.showAlert(title: Constant.internetErrorTitle, message: Constant.internetErrorMessage))
-				}
 				return
 			}
 

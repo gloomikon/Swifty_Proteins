@@ -9,4 +9,5 @@ target 'Swifty Proteins' do
   # Pods for Swifty Proteins
   pod 'Alamofire'
   pod 'SwiftSoup'
+  pod 'SwiftyJSON'
 end

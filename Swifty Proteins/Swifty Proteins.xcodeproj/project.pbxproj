@@ -21,6 +21,7 @@
 		77A2CABA23F8A22700929B56 /* AtomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2CAB923F8A22700929B56 /* AtomViewController.swift */; };
 		77A2CABE23F8A29400929B56 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 77A2CABD23F8A29400929B56 /* PeriodicTableJSON.json */; };
 		77A2CAC123F8A7C700929B56 /* Atom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A2CAC023F8A7C700929B56 /* Atom.storyboard */; };
+		77A2CAC323F96D1300929B56 /* AtomKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2CAC223F96D1300929B56 /* AtomKitchen.swift */; };
 		77A523EF23F6B15E0032DE16 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A523EE23F6B15E0032DE16 /* SlideInPresentationManager.swift */; };
 		77A523F123F6B2E80032DE16 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A523F023F6B2E80032DE16 /* SettingsViewController.swift */; };
 		77A81F7523EB61FA00D215F4 /* LoginKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A81F7423EB61F900D215F4 /* LoginKitchen.swift */; };
@@ -57,6 +58,7 @@
 		77A2CAB923F8A22700929B56 /* AtomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomViewController.swift; sourceTree = "<group>"; };
 		77A2CABD23F8A29400929B56 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = SOURCE_ROOT; };
 		77A2CAC023F8A7C700929B56 /* Atom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Atom.storyboard; path = "Swifty Proteins/Atom/Atom.storyboard"; sourceTree = SOURCE_ROOT; };
+		77A2CAC223F96D1300929B56 /* AtomKitchen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomKitchen.swift; sourceTree = "<group>"; };
 		77A523EE23F6B15E0032DE16 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
 		77A523F023F6B2E80032DE16 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		77A81F7423EB61F900D215F4 /* LoginKitchen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKitchen.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		77A2CABF23F8A78300929B56 /* Atom */ = {
 			isa = PBXGroup;
 			children = (
+				77A2CAC223F96D1300929B56 /* AtomKitchen.swift */,
 				77A2CAB923F8A22700929B56 /* AtomViewController.swift */,
 				77A2CAC023F8A7C700929B56 /* Atom.storyboard */,
 			);
@@ -365,6 +368,7 @@
 				77A523EF23F6B15E0032DE16 /* SlideInPresentationManager.swift in Sources */,
 				77C1A98723F34BF100B0E386 /* String+IndicesOfSubscripts.swift in Sources */,
 				77A81F7D23EC18AB00D215F4 /* ProteinsListViewController.swift in Sources */,
+				77A2CAC323F96D1300929B56 /* AtomKitchen.swift in Sources */,
 				77EA6F2423E82BA000212887 /* AppDelegate.swift in Sources */,
 				77C1A98323F3488100B0E386 /* LidandDataCell.swift in Sources */,
 				77A523F123F6B2E80032DE16 /* SettingsViewController.swift in Sources */,

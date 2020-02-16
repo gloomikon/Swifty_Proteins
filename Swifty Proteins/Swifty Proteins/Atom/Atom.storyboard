@@ -177,6 +177,9 @@
                                                 <rect key="frame" x="301" y="10" width="73" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="More info"/>
+                                                <connections>
+                                                    <action selector="moreInfoWasTapped:" destination="G7o-vU-cKV" eventType="touchUpInside" id="mie-hI-1B3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -26,6 +26,7 @@ class LigandSceneViewController: UIViewController {
     private var labelNodes = [SCNNode]()
     private var shouldShowHydrogens = true
     private var shouldHaveDarkBackground = false
+    private var atomSymbol: String?
 
 	// MARK: Life cycle
 
@@ -78,6 +79,10 @@ class LigandSceneViewController: UIViewController {
             slideInTransitioningDelegate.direction = .bottom
             controller.transitioningDelegate = slideInTransitioningDelegate
             controller.modalPresentationStyle = .custom
+            guard let atomSymbol = atomSymbol else {
+                return
+            }
+            controller.configureWithAtom(atomSymbol)
         }
     }
 
@@ -107,12 +112,13 @@ class LigandSceneViewController: UIViewController {
         let p = gestureRecognize.location(in: scnView)
         let hitResults = scnView.hitTest(p, options: [:])
         if hitResults.count > 0 {
-            // retrieved the first clicked object
             let result: SCNHitTestResult = hitResults[0]
 
-            guard let name = result.node.name else {
+            guard let atomSymbol = result.node.name else {
                 return
             }
+
+            self.atomSymbol = atomSymbol
 
             performSegue(withIdentifier: "showAtomInfo", sender: nil)
         }
