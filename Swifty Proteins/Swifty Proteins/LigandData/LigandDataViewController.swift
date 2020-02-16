@@ -114,10 +114,15 @@ class LigandDataViewController: UIViewController {
     }
 
     @IBAction private func shareButtonTapped(_ sender: Any) {
-        let activityVC = UIActivityViewController(activityItems: [ligandImage.image!, ligandData!.url], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = view
-        
-        present(activityVC, animated: true)
+        let activityViewController = UIActivityViewController(activityItems: [ligandImage.image!, ligandData!.url], applicationActivities: nil)
+
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+
+        present(activityViewController, animated: true)
     }
 
     @IBAction func showSceneButtonTapped(_ sender: Any) {

@@ -57,10 +57,15 @@ class LigandSceneViewController: UIViewController {
     // MARK: IBAction
 
     @IBAction func shareButtonTapped(_ sender: Any) {
-        let activityVC = UIActivityViewController(activityItems: [scnView.snapshot()], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = view
+        let activityViewController = UIActivityViewController(activityItems: [scnView.snapshot()], applicationActivities: nil)
 
-        present(activityVC, animated: true)
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+
+        self.present(activityViewController, animated: true)
     }
 
     // MARK: Navigation
