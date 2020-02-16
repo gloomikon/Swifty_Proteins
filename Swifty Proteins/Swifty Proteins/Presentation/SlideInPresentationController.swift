@@ -17,11 +17,11 @@ class SlideInPresentationController: UIPresentationController {
 
         switch direction {
         case .right:
-            self.presentedView?.roundCorners([.topLeft, .bottomLeft], radius: 25)
-            self.presentedView?.backgroundColor = UIColor.darkGray
+            presentedView?.roundCorners([.topLeft, .bottomLeft], radius: 25)
+            presentedView?.backgroundColor = UIColor.darkGray
         case .bottom:
-            self.presentedView?.roundCorners([.topLeft, .topRight], radius: 25)
-            self.presentedView?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
+            presentedView?.roundCorners([.topLeft, .topRight], radius: 25)
+            presentedView?.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
         }
 
         setupDimmingView()

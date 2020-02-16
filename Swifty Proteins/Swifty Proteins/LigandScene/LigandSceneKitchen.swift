@@ -301,6 +301,7 @@ class LigandSceneKitchen {
 				default:
 					break
 				}
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			}
 		}
 	}
