@@ -56,7 +56,7 @@ class AtomKitchen {
                 return
             }
             for element in elements {
-                if element["symbol"].stringValue == atomSymbol {
+                if element["symbol"].stringValue.lowercased() == atomSymbol?.lowercased() {
                     let name = element["name"].stringValue
                     let symbol = element["symbol"].stringValue
                     let discovered_by = element["discovered_by"].stringValue
